@@ -1,0 +1,568 @@
+<head>
+  <title>On Deck Scheduling</title>
+</head>
+
+<body id="testid">
+  <h1>On Deck Scheduling</h1>
+
+
+ <!-- Tab Names > -->
+
+<div class="containter-fluid">
+
+
+
+
+<div class="row">
+<div class="col-xs-12 col-md-8">
+<ul id="myTabs" class="nav nav-tabs" role="tablist">
+
+
+
+<li role="presenation" class="active"><a href="#monday" aria-controls="monday" role="tab" data-toggle="tab" aria-expanded="false">Monday</a> </li>
+
+<li role="presenation" class=""><a href="#tuesday" aria-controls="tuesday" role="tab" data-toggle="tab" aria-expanded="false">Tuesday</a> </li>
+
+<li role="presenation" class=""><a href="#wednesday" aria-controls="tuesday" role="tab" data-toggle="tab" aria-expanded="false">Wednesday</a> </li>
+
+<li role="presenation" class=""><a href="#thursday" aria-controls="tuesday" role="tab" data-toggle="tab" aria-expanded="false">Thursday</a> </li>
+
+<li role="presenation" class=""><a href="#friday" aria-controls="tuesday" role="tab" data-toggle="tab" aria-expanded="false">Friday</a> </li>
+
+<li role="presenation" class=""><a href="#saturday" aria-controls="tuesday" role="tab" data-toggle="tab" aria-expanded="false">Saturday</a> </li>
+
+<li role="presenation" class=""><a href="#sunday" aria-controls="tuesday" role="tab" data-toggle="tab" aria-expanded="false">Sunday</a> </li>
+</ul> 
+
+ <!-- Tab Content > -->
+
+<div class="tab-content">
+
+    
+	<!-- MONDAY TAB -->
+    <div role="tabpanel" class="tab-pane active monday" id="monday">  
+<h2>Techs <span>
+<btn class ="btn btn-warning " data-toggle="collapse" data-target="#collapseDiv" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+</span>
+</h2>
+
+    <div class="collapse in techTable mondayTable" id="collapseDiv">
+
+  {{> schedule}}
+</div>
+  <h2>Floater/EIC  
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv2" >
+  {{> BackWall}}
+  
+  </div>
+<h2>Admins 
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv3" >
+  {{> Admins}}
+
+  </div>
+
+ <!--  {{>readCSV}} -->
+ 
+</div>
+
+	<!-- TUESDAY TAB -->
+  <div role="tabpanel" class="tab-pane tuesday" id="tuesday">
+  <h2>Techs <span>
+<btn class ="btn btn-warning " data-toggle="collapse" data-target="#collapseDivTues" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+</span>
+</h2>
+
+    <div class="collapse in techTable tuesdayTable" id="collapseDivTues">
+
+  {{> schedule}}
+</div>
+  <h2>Floater/EIC  
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Tues" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv2Tues" >
+  {{> BackWall}}
+  
+  </div>
+<h2>Admins 
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Tues" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv3Tues" >
+  {{> Admins}}
+
+  </div>
+ </div>
+
+ 	<!-- WEDNSDAY TAB -->
+
+<div role="tabpanel" class="tab-pane wednesday" id="wednesday">
+  <h2>Techs <span>
+<btn class ="btn btn-warning " data-toggle="collapse" data-target="#collapseDivWed" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+</span>
+</h2>
+
+    <div class="collapse in techTable wednesdayTable" id="collapseDivWed">
+
+  {{> schedule}}
+</div>
+  <h2>Floater/EIC  
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Wed" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv2Wed" >
+  {{> BackWall}}
+  
+  </div>
+<h2>Admins 
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Wed" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv3Wed" >
+  {{> Admins}}
+
+  </div>
+</div>
+
+ 	<!-- THURSDAY TAB -->
+
+<div role="tabpanel" class="tab-pane thursday" id="thursday">
+  <h2>Techs <span>
+<btn class ="btn btn-warning " data-toggle="collapse" data-target="#collapseDivThur" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+</span>
+</h2>
+
+    <div class="collapse in techTable thursdayTable" id="collapseDivThur">
+
+  {{> schedule}}
+</div>
+  <h2>Floater/EIC  
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Thur" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv2Thur" >
+  {{> BackWall}}
+  
+  </div>
+<h2>Admins 
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Thur" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv3Thur" >
+  {{> Admins}}
+
+  </div>
+</div>
+
+ 	<!-- FRIDAY TAB -->
+
+<div role="tabpanel" class="tab-pane friday" id="friday">
+  <h2>Techs <span>
+<btn class ="btn btn-warning " data-toggle="collapse" data-target="#collapseDivFri" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+</span>
+</h2>
+
+    <div class="collapse in techTable fridayTable" id="collapseDivFri">
+
+  {{> schedule}}
+</div>
+  <h2>Floater/EIC  
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Fri" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv2Fri" >
+  {{> BackWall}}
+  
+  </div>
+<h2>Admins 
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Fri" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv3Fri" >
+  {{> Admins}}
+
+  </div>
+</div>
+
+
+ 	<!-- SATURDAY TAB -->
+
+<div role="tabpanel" class="tab-pane saturday" id="saturday">
+  <h2>Techs <span>
+<btn class ="btn btn-warning " data-toggle="collapse" data-target="#collapseDivSat" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+</span>
+</h2>
+
+    <div class="collapse in techTable saturdayTable" id="collapseDivSat">
+
+  {{> schedule}}
+</div>
+  <h2>Floater/EIC  
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Sat" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv2Sat" >
+  {{> BackWall}}
+  
+  </div>
+<h2>Admins 
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Sat" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv3Sat" >
+  {{> Admins}}
+
+  </div>
+</div>
+ 	
+
+ 	<!-- SUNDAY TAB -->
+
+
+<div role="tabpanel" class="tab-pane sunday" id="sunday">
+  <h2>Techs <span>
+<btn class ="btn btn-warning " data-toggle="collapse" data-target="#collapseDivSun" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+</span>
+</h2>
+
+    <div class="collapse in techTable sundayTable" id="collapseDivSun">
+
+  {{> schedule}}
+</div>
+  <h2>Floater/EIC  
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Sun" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv2Sun" >
+  {{> BackWall}}
+  
+  </div>
+<h2>Admins 
+  <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Sun" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
+  </h2>
+
+  <div class="collapse" id="collapseDiv3Sun" >
+  {{> Admins}}
+
+  </div>
+</div>
+
+
+</div> 
+
+{{>upload}}
+{{>export}}
+</div>
+
+<div class="col-xs-6 col-md-4" id="rightbox">
+ 	<h3 id="Hours">Hour Totals</h3>
+
+ 	<ol>
+ 		
+ 		<ul>Tech1</ul>
+ 		<ul>Tech2</ul>
+ 	</ol>
+ 
+ </div>
+</div>
+
+
+
+</div>
+
+
+
+</body>
+
+
+
+ <!-- Templates > -->
+<template name="schedule">
+
+<div id="table" class="table-responsive">
+
+<table id="GameTable" class="table table-striped GameTable">
+<thead>
+            <tr>
+             <th>Time (ET)</th>
+              <th>Visit Team</th>
+              <th>Home Team</th>
+             
+               <th> Umpire </th>
+              <th> Tech </th>
+             
+              <th> Shift Time </th>
+              <th> Station </th>
+
+            </tr>
+          </thead>
+
+ <tbody>
+<tr id="Game" class="template" name="row">
+
+<td>
+<form class="focus">
+ <input type="text" name="start" class="startTime" placeholder="Start Time" value="" size="10">
+
+ </form>
+ </td>
+<td>
+<input list="teams" type="text" name="away" id="away" class="away" placeholder="Away" size="15" >
+
+
+	<!-- <datalist id="teams">
+
+		<option value="ARI"></option>
+		<option value="ATL"></option>
+		<option value="BAL"></option>
+		<option value="BOS"></option>
+		<option value="CHC"></option>
+		<option value="CWS"></option>
+		<option value="CIN"></option>
+		<option value="CLE"></option>
+		<option value="COL"></option>
+		<option value="DET"></option>
+		<option value="HOU"></option>
+		<option value="KCR"></option>
+		<option value="LAA"></option>
+		<option value="LAD"></option>
+		<option value="MIA"></option>
+		<option value="MIL"></option>
+		<option value="MIN"></option>
+		<option value="NYY"></option>
+		<option value="NYM"></option>
+		<option value="OAK"></option>
+		<option value="PHI"></option>
+		<option value="PIT"></option>
+		<option value="SDP"></option>
+		<option value="SFG"></option>
+		<option value="SEA"></option>
+		<option value="STL"></option>
+		<option value="TBR"></option>
+		<option value="TEX"></option>
+		<option value="TOR"></option>
+		<option value="WSH"></option>
+		
+	</datalist> -->
+</td>
+<td>
+<input list = "teams" type="text" name="home" class="home" placeholder="Home" size="19">
+
+</td>
+
+
+ <td>
+	<input type="text" name="umpire" class="umpire" placeholder ="Umpire" size="14">
+</td>
+ <td>
+<input list="techs" type="text" name="tech" placeholder="Tech" size="11">
+<datalist id="techs">
+<option value="Akins"></option>
+<option value="Butto"></option>
+<option value="Dellatorri"></option>
+<option value="Dolega"></option>
+<option value="Fried"></option>
+
+<option value="James"></option>
+<option value="Mendez"></option>
+<option value="Smith"></option>
+<option value="Urteaga"></option>
+
+</datalist>
+</td>
+
+
+
+ <td>
+<input type="text" name="shift" placeholder="Shift" value="{{counter}}" size="11">
+</td>
+<td>
+<input list="station" type="text" name="station" placeholder="Station" size="8">
+	<datalist id = "station">
+		<option value="1"></option>
+		<option value="2"></option>
+		<option value="3"></option>
+		<option value="4"></option>
+		<option value="5"></option>
+		<option value="6"></option>
+
+
+	</datalist>
+</td>
+
+<td>
+	<button class="btn" id="delete" type="delete">Delete</button>
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+ 	<button class="btn btn-primary" id="add" type="submit">Add Shift</button>
+
+
+ </div>
+ 
+
+ 
+</template>
+
+<template name="BackWall">
+
+<div class="table-responsive">
+
+<table id="GameTable2" class="table table-striped">
+
+<thead>
+
+<tr>
+	
+	<th>Position</th>
+	<th>Tech</th>
+	<th>Shift</th>
+	<th>Station</th>
+</tr>
+	
+
+
+</thead>
+<tbody>
+	<tr>
+		<td>
+			<input list="backwall" type="text" placeholder="Position" >
+
+			<datalist id = "backwall">
+			<option value="EIC"></option>
+			<option value="EIC2"></option>
+			<option value="Float1"></option>
+			<option value="Float2"></option>
+			<option value="Float3"></option>
+			<option value="Float4"></option>
+			<option value="Float5"></option>
+			<option value="Definitive Angle"></option>
+
+			</datalist>
+		</td>
+		<td>
+			<input type="text" placeholder="Tech">
+		</td>
+		<td>
+			<input type="text" placeholder="Shift">
+		</td>
+
+		<td>
+			<input type="text" placeholder="Station" >
+		</td>
+
+		<td>
+			<button class="btn" id="delete">Delete</button>
+		</td>
+	</tr>
+
+
+</tbody>
+
+
+
+	
+
+</table>
+
+<button class="btn btn-primary" id="add" type="submit">Add Shift</button>
+
+</div>
+
+</template>
+
+
+<template name="Admins">
+
+<div class="table-responsive">
+
+<table id="GameTable3" class="table table-striped">
+
+<thead>
+
+<tr>
+	
+	
+	<th>Admin</th>
+	<th>Shift</th>
+	
+</tr>
+	
+
+
+</thead>
+<tbody>
+	<tr>
+		
+		<td>
+			<input type="text" placeholder="Admin">
+		</td>
+		<td>
+			<input type="text" placeholder="Shift">
+		</td>
+
+		<td>
+			<button class="btn" id="delete">Delete</button>
+		</td>
+	</tr>
+
+
+</tbody>
+
+
+
+	
+
+</table>
+
+<button class="btn btn-primary" id="add" type="submit">Add Shift</button>
+
+</div>
+
+
+</template>
+
+<template name="upload">
+	<h4 class="page-header">Upload a CSV</h4>
+
+	{{#unless uploading}}
+		<input type="file" name="uploadCSV">
+	{{else}}
+		<p><i class="fa fa-spin fa-refresh"></i> Uploading files...</p>
+
+	{{/unless}}
+
+	<div>
+		
+		<button class="btn btn-primary" id="add" type="submit">IMPORT DATA (CLICK ONCE!)</button>
+
+		<button class="btn btn-primary" id = "submitTable" type="submit">SAVE
+		</button>
+		<button class="btn btn-primary" id = "loadLastSave" type="submit">Load Last Save
+		</button>
+
+	</div>
+</template>
+
+<template name ="export">
+<button class="export-data btn btn-success" data-loading-text="Exporting...">Export Data</button>
+
+<a href="/text">Download text</a>
+
+</template>
+
+<!-- <template name="readCSV">
+    <input type="file" id="csv-file" name="files"/>
+    <button type="submit" class="btn btn-primary btnReadCsv">Read</button>
+</template> -->

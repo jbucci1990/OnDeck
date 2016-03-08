@@ -1,0 +1,1 @@
+Xcel = new Mongo.Collection('xcel');

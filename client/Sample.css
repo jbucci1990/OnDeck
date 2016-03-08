@@ -1,0 +1,74 @@
+/* CSS declarations go here */
+
+#GameTable3 th, #GameTable3 td, #GameTable2 th, #GameTable2 td, #GameTable th, #GameTable td {
+
+	text-align: center;
+}
+
+#rightbox {
+	border: solid 10px black;
+	margin-top: 30px;
+	width: 250px;
+	margin-right: 10px;
+	margin-left: 10px;
+
+}
+
+#GameTable{
+
+	table-layout: auto;
+}
+
+h3 {
+	text-align: center;
+}
+
+h2 {
+
+	color: blue;
+	font-weight: bold;
+
+}
+
+#collapseDiv,#collapseDivTues,#collapseDivWed,#collapseDivThur,#collapseDivFri,#collapseDivSat,#collapseDivSun {
+
+	border: dashed grey 2px;
+	margin-bottom: 50px;
+
+}
+
+#collapseDiv2 {
+
+	border: dashed grey 2px;
+	margin-bottom: 50px;
+
+}
+
+#collapseDiv3 {
+
+	border: dashed grey 2px;
+	margin-bottom: 50px;
+
+}
+
+.nav-tabs > li.active > a {
+	font-weight: bold;
+	background-color: #e5f2ff;
+	font-size: 15px;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
