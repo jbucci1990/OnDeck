@@ -3,12 +3,12 @@
 </head>
 
 <body id="testid">
-  <h1>On Deck Scheduling</h1>
-
+  
 
  <!-- Tab Names > -->
 
 <div class="containter-fluid">
+<h1>On Deck Scheduling</h1>
 
 
 
@@ -54,7 +54,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv2" >
+  <div class="collapse mondayTable" id="collapseDiv2" >
   {{> BackWall}}
   
   </div>
@@ -62,7 +62,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv3" >
+  <div class="collapse mondayTable" id="collapseDiv3" >
   {{> Admins}}
 
   </div>
@@ -86,7 +86,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Tues" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv2Tues" >
+  <div class="collapse tuesdayTable" id="collapseDiv2Tues" >
   {{> BackWall}}
   
   </div>
@@ -94,7 +94,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Tues" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv3Tues" >
+  <div class="collapse tuesdayTable" id="collapseDiv3Tues" >
   {{> Admins}}
 
   </div>
@@ -116,7 +116,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Wed" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv2Wed" >
+  <div class="collapse wednesdayTable" id="collapseDiv2Wed" >
   {{> BackWall}}
   
   </div>
@@ -124,7 +124,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Wed" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv3Wed" >
+  <div class="collapse wednesdayTable" id="collapseDiv3Wed" >
   {{> Admins}}
 
   </div>
@@ -146,7 +146,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Thur" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv2Thur" >
+  <div class="collapse thursdayTable" id="collapseDiv2Thur" >
   {{> BackWall}}
   
   </div>
@@ -154,7 +154,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Thur" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv3Thur" >
+  <div class="collapse thursdayTable" id="collapseDiv3Thur" >
   {{> Admins}}
 
   </div>
@@ -176,7 +176,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Fri" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv2Fri" >
+  <div class="collapse fridayTable" id="collapseDiv2Fri" >
   {{> BackWall}}
   
   </div>
@@ -184,7 +184,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Fri" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv3Fri" >
+  <div class="collapse fridayTable" id="collapseDiv3Fri" >
   {{> Admins}}
 
   </div>
@@ -207,7 +207,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Sat" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv2Sat" >
+  <div class="collapse saturdayTable" id="collapseDiv2Sat" >
   {{> BackWall}}
   
   </div>
@@ -215,7 +215,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Sat" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv3Sat" >
+  <div class="collapse saturdayTable" id="collapseDiv3Sat" >
   {{> Admins}}
 
   </div>
@@ -239,7 +239,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Sun" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv2Sun" >
+  <div class="collapse sundayTable" id="collapseDiv2Sun" >
   {{> BackWall}}
   
   </div>
@@ -247,7 +247,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Sun" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse" id="collapseDiv3Sun" >
+  <div class="collapse sundayTable" id="collapseDiv3Sun" >
   {{> Admins}}
 
   </div>
@@ -303,7 +303,7 @@
             </tr>
           </thead>
 
- <tbody>
+ <tbody class ="tbod">
 <tr id="Game" class="template" name="row">
 
 <td>
@@ -361,7 +361,7 @@
 	<input type="text" name="umpire" class="umpire" placeholder ="Umpire" size="14">
 </td>
  <td>
-<input list="techs" type="text" name="tech" placeholder="Tech" size="11">
+<input list="techs" type="text" name="tech" class = "tech" placeholder="Tech" size="11">
 <datalist id="techs">
 <option value="Akins"></option>
 <option value="Butto"></option>
@@ -380,10 +380,10 @@
 
 
  <td>
-<input type="text" name="shift" placeholder="Shift" value="{{counter}}" size="11">
+<input type="text" name="shift" class="shift" placeholder="Shift" value="{{counter}}" size="11">
 </td>
 <td>
-<input list="station" type="text" name="station" placeholder="Station" size="8">
+<input list="station" type="text" name="station" class="station" placeholder="Station" size="8">
 	<datalist id = "station">
 		<option value="1"></option>
 		<option value="2"></option>
@@ -419,7 +419,7 @@
 
 <div class="table-responsive">
 
-<table id="GameTable2" class="table table-striped">
+<table id="GameTable2" class="table table-striped GameTable2">
 
 <thead>
 
@@ -487,7 +487,7 @@
 
 <div class="table-responsive">
 
-<table id="GameTable3" class="table table-striped">
+<table id="GameTable3" class="table table-striped GameTable3">
 
 <thead>
 
@@ -547,7 +547,7 @@
 		
 		<button class="btn btn-primary" id="add" type="submit">IMPORT DATA (CLICK ONCE!)</button>
 
-		<button class="btn btn-primary" id = "submitTable" type="submit">SAVE
+		<button class="btn btn-primary" id = "save" type="submit">SAVE
 		</button>
 		<button class="btn btn-primary" id = "loadLastSave" type="submit">Load Last Save
 		</button>

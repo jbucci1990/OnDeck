@@ -1,6 +1,8 @@
 
 Meteor.methods({
   parseUpload( data ) {
+
+    Sales.remove({});
     check( data, Array );
 
     for ( let i = 0; i < data.length; i++ ) {
@@ -12,7 +14,7 @@ Meteor.methods({
 
     }
   },
-
+//Remove Collection 
   clearCollection(){
     Xcel.remove({});
 

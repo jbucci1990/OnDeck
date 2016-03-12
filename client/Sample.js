@@ -199,7 +199,7 @@ Template.upload.events({
     });
   },
 
-  'click #submitTable' : function (event) {
+  'click #save' : function (event) {
 
     event.preventDefault();
     Meteor.call('clearCollection');
@@ -220,11 +220,22 @@ Template.upload.events({
 //////////////////////
     for (var itemTop = 0; itemTop <weeklyGames.length; itemTop++){
       var gamearray = weeklyGames[itemTop];
-      var correctDayTable = $("." +testingthestring[itemTop] +"Table .GameTable tr")
-      console.log(correctDayTable);
+      var correctDayTable1 = $("." +testingthestring[itemTop] +"Table .GameTable tr");
+
+      var correctDayTable2 = $("." +testingthestring[itemTop] +"Table .GameTable2 tr");
+
+      var correctDayTable3 = $("." +testingthestring[itemTop] +"Table .GameTable3 tr");
+      console.log(correctDayTable1);
+      console.log("below this line is table2")
+      console.log(correctDayTable2);
+      console.log("below this line is table3")
+      console.log(correctDayTable3);
+      
+
+
 
     var myTable = [];
-$(correctDayTable).each(function (i, tr) {
+$(correctDayTable1).each(function (i, tr) {
     var myTr = [];
 
     $('td', this).each(function() {
@@ -236,6 +247,35 @@ $(correctDayTable).each(function (i, tr) {
 
 console.log(myTable);
 Xcel.insert(myTable);
+
+
+
+var myTable2 = [];
+$(correctDayTable2).each(function (i, tr) {
+    var myTr2 = [];
+
+    $('td', this).each(function() {
+        myTr2.push($(this).find(":input").val());
+    });
+
+    myTable2.push(myTr2);
+});
+
+console.log(myTable2);
+
+
+var myTable3 = [];
+$(correctDayTable3).each(function (i, tr) {
+    var myTr3 = [];
+
+    $('td', this).each(function() {
+        myTr3.push($(this).find(":input").val());
+    });
+
+    myTable3.push(myTr3);
+});
+
+console.log(myTable3);
 Bert.alert( 'Schedule Saved!', 'success', 'growl-top-right' );
 };
 
@@ -249,6 +289,11 @@ Meteor.call('excel4node');
   },
 
   'click #loadLastSave' : function (event){
+
+    
+
+
+
     var mondayInfo = [];
     var tuesdayInfo = [];
     var wednesdayInfo = [];
@@ -296,11 +341,13 @@ Meteor.call('excel4node');
 }
 
         }
-        for (var nextItem = 0; nextItem < currentObject[item].length; nextItem++){
 
-          var nextCurrentObject = (currentObject[item])[nextItem];
-          // console.log(nextCurrentObject);
-        }
+
+        // for (var nextItem = 0; nextItem < currentObject[item].length; nextItem++){
+
+        //   var nextCurrentObject = (currentObject[item])[nextItem];
+        //   // console.log(nextCurrentObject);
+        // }
 
         console.log(mondayInfo);
         console.log(tuesdayInfo);
@@ -310,8 +357,274 @@ Meteor.call('excel4node');
         console.log(saturdayInfo);
         console.log(sundayInfo);
 
+        var weeklyGamesInfo = [mondayInfo, tuesdayInfo, wednesdayInfo,thursdayInfo, fridayInfo,saturdayInfo,sundayInfo]
+        console.log(weeklyGamesInfo);
+
      
+    };
+
+    var testingthestring = ["monday", "tuesday","wednesday", "thursday", "friday","saturday","sunday"];
+
+    for (var itemTop = 0; itemTop <weeklyGamesInfo.length; itemTop++){
+
+      var gamearray = weeklyGamesInfo[itemTop];
+      gamearray.splice(0,2);
+      console.log(gamearray);
+     
+      var correctDayTable = $("." +testingthestring[itemTop] +"Table .GameTable")
+      // console.log(correctDayTable);
+
+    $("." +testingthestring[itemTop] +"Table .GameTable tr:not(:eq(0), :eq(1))").remove();
+
+    for (var itemZ = 0; itemZ <gamearray.length; itemZ++){
+      console.log(gamearray[itemZ]);
+      console.log("-----")
+
+      var clone = $("#GameTable tr:eq(1)").clone().find("input").each(function() {
+    $(this).val('')
+  }).end();
+
+    clone.attr({
+
+      'id': function(_, id) {return id + itemZ},
+      'name' : function(_, name) {return name + itemZ},
+      'class' : function(_,name) {return name + itemZ},
+    })  
+    clone.appendTo(correctDayTable);
+
+
+    var rowID = "Game" + itemZ;
+        // console.log(rowID);
+        console.log("----------------------")
+
+  
+
+        var currentMondayObject = mondayInfo[itemZ];
+        var currentTuesdayObject = tuesdayInfo[itemZ];
+        var currentWednesdayObject = wednesdayInfo[itemZ];
+        var currentThursdayObject = thursdayInfo[itemZ];
+        var currentFridayObject = fridayInfo[itemZ];
+        var currentSaturdayObject = saturdayInfo[itemZ];
+        var currentSundayObject = sundayInfo[itemZ];
+
+
+        for (var object in currentMondayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 1){
+
+          $(".monday").find("#" + rowID).find(".away").val(currentMondayObject[object]);
+        }
+          
+          else if(object == 2){
+            $(".monday").find("#" + rowID).find(".home").val(currentMondayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".monday").find("#" + rowID).find(".umpire").val(currentMondayObject[object]);
+          }
+
+          else if(object == 0){
+            $(".monday").find("#" + rowID).find(".startTime").val(currentMondayObject[object]);
+          }
+          else if(object == 4){
+            $(".monday").find("#" + rowID).find(".tech").val(currentMondayObject[object]);
+          }
+          else if(object == 5){
+            $(".monday").find("#" + rowID).find(".shift").val(currentMondayObject[object]);
+          }
+          else if(object == 6){
+            $(".monday").find("#" + rowID).find(".station").val(currentMondayObject[object]);
+          }
+}
+        for (var object in currentTuesdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 1){
+
+          $(".tuesday").find("#" + rowID).find(".away").val(currentTuesdayObject[object]);
+        }
+          
+          else if(object == 2){
+            $(".tuesday").find("#" + rowID).find(".home").val(currentTuesdayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".tuesday").find("#" + rowID).find(".umpire").val(currentTuesdayObject[object]);
+          }
+
+          else if(object == 0){
+            $(".tuesday").find("#" + rowID).find(".startTime").val(currentTuesdayObject[object]);
+          }
+          else if(object == 4){
+            $(".tuesday").find("#" + rowID).find(".tech").val(currentTuesdayObject[object]);
+          }
+          else if(object == 5){
+            $(".tuesday").find("#" + rowID).find(".shift").val(currentTuesdayObject[object]);
+          }
+          else if(object == 6){
+            $(".tuesday").find("#" + rowID).find(".station").val(currentTuesdayObject[object]);
+          }
+}
+        for (var object in currentWednesdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 1){
+
+          $(".wednesday").find("#" + rowID).find(".away").val(currentWednesdayObject[object]);
+        }
+          
+          else if(object == 2){
+            $(".wednesday").find("#" + rowID).find(".home").val(currentWednesdayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".wednesday").find("#" + rowID).find(".umpire").val(currentWednesdayObject[object]);
+          }
+
+          else if(object == 0){
+            $(".wednesday").find("#" + rowID).find(".startTime").val(currentWednesdayObject[object]);
+          }
+          else if(object == 4){
+            $(".wednesday").find("#" + rowID).find(".tech").val(currentWednesdayObject[object]);
+          }
+          else if(object == 5){
+            $(".wednesday").find("#" + rowID).find(".shift").val(currentWednesdayObject[object]);
+          }
+          else if(object == 6){
+            $(".wednesday").find("#" + rowID).find(".station").val(currentWednesdayObject[object]);
+          }
+}
+
+        for (var object in currentThursdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 1){
+
+          $(".thursday").find("#" + rowID).find(".away").val(currentThursdayObject[object]);
+        }
+          
+          else if(object == 2){
+            $(".thursday").find("#" + rowID).find(".home").val(currentThursdayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".thursday").find("#" + rowID).find(".umpire").val(currentThursdayObject[object]);
+          }
+
+          else if(object == 0){
+            $(".thursday").find("#" + rowID).find(".startTime").val(currentThursdayObject[object]);
+          }
+          else if(object == 4){
+            $(".thursday").find("#" + rowID).find(".tech").val(currentThursdayObject[object]);
+          }
+          else if(object == 5){
+            $(".thursday").find("#" + rowID).find(".shift").val(currentThursdayObject[object]);
+          }
+          else if(object == 6){
+            $(".thursday").find("#" + rowID).find(".station").val(currentThursdayObject[object]);
+          }
+}
+
+        for (var object in currentFridayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 1){
+
+          $(".friday").find("#" + rowID).find(".away").val(currentFridayObject[object]);
+        }
+          
+          else if(object == 2){
+            $(".friday").find("#" + rowID).find(".home").val(currentFridayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".friday").find("#" + rowID).find(".umpire").val(currentFridayObject[object]);
+          }
+
+          else if(object == 0){
+            $(".friday").find("#" + rowID).find(".startTime").val(currentFridayObject[object]);
+          }
+          else if(object == 4){
+            $(".friday").find("#" + rowID).find(".tech").val(currentFridayObject[object]);
+          }
+          else if(object == 5){
+            $(".friday").find("#" + rowID).find(".shift").val(currentFridayObject[object]);
+          }
+          else if(object == 6){
+            $(".friday").find("#" + rowID).find(".station").val(currentFridayObject[object]);
+          }
+}
+        for (var object in currentSaturdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 1){
+
+          $(".saturday").find("#" + rowID).find(".away").val(currentSaturdayObject[object]);
+        }
+          
+          else if(object == 2){
+            $(".saturday").find("#" + rowID).find(".home").val(currentSaturdayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".saturday").find("#" + rowID).find(".umpire").val(currentSaturdayObject[object]);
+          }
+
+          else if(object == 0){
+            $(".saturday").find("#" + rowID).find(".startTime").val(currentSaturdayObject[object]);
+          }
+          else if(object == 4){
+            $(".saturday").find("#" + rowID).find(".tech").val(currentSaturdayObject[object]);
+          }
+          else if(object == 5){
+            $(".saturday").find("#" + rowID).find(".shift").val(currentSaturdayObject[object]);
+          }
+          else if(object == 6){
+            $(".saturday").find("#" + rowID).find(".station").val(currentSaturdayObject[object]);
+          }
+}
+
+        for (var object in currentSundayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 1){
+
+          $(".sunday").find("#" + rowID).find(".away").val(currentSundayObject[object]);
+        }
+          
+          else if(object == 2){
+            $(".sunday").find("#" + rowID).find(".home").val(currentSundayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".sunday").find("#" + rowID).find(".umpire").val(currentSundayObject[object]);
+          }
+
+          else if(object == 0){
+            $(".sunday").find("#" + rowID).find(".startTime").val(currentSundayObject[object]);
+          }
+          else if(object == 4){
+            $(".sunday").find("#" + rowID).find(".tech").val(currentSundayObject[object]);
+          }
+          else if(object == 5){
+            $(".sunday").find("#" + rowID).find(".shift").val(currentSundayObject[object]);
+          }
+          else if(object == 6){
+            $(".sunday").find("#" + rowID).find(".station").val(currentSundayObject[object]);
+          }
+}
+
+
+
+
     }
+    console.log("#############")
+
+
+
+    ///////
+
+
+    
+
+
+  }
+
+
 
   },
 
@@ -382,11 +695,11 @@ Meteor.call('excel4node');
       for (var item = 0; item<gamearray.length; item++){
 
         var currentTable = event.target.previousElementSibling;
-    
+
 
       var table = document.getElementById("GameTable");
       // var clone = $("#GameTable tr:last").clone().find('input').val('').end().insertAfter("#GameTable tr:last")
-      var clone = $("#GameTable tr:eq(1)").clone().find("input").each(function() {
+      var clone = $("." +testingthestring[itemTop] +"Table .GameTable tr:eq(1)").clone().find("input").each(function() {
     $(this).val('')
   }).end();
 
@@ -397,6 +710,9 @@ Meteor.call('excel4node');
       'class' : function(_,name) {return name + item},
     })  
     clone.appendTo(correctDayTable);
+
+    // $("." +testingthestring[itemTop] +"Table .GameTable tr:eq(1)").remove();
+
   
 
 
@@ -555,8 +871,13 @@ Meteor.call('excel4node');
                     }
           }
 
+
+
       }
+
     }
+
+
 
      
       

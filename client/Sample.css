@@ -1,5 +1,10 @@
 /* CSS declarations go here */
 
+.containter-fluid {
+
+	margin-left: 15px;
+}
+
 #GameTable3 th, #GameTable3 td, #GameTable2 th, #GameTable2 td, #GameTable th, #GameTable td {
 
 	text-align: center;
@@ -15,6 +20,8 @@
 }
 
 #GameTable{
+
+	margin-left: 5px;
 
 	table-layout: auto;
 }
@@ -34,6 +41,7 @@ h2 {
 
 	border: dashed grey 2px;
 	margin-bottom: 50px;
+
 
 }
 
