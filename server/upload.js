@@ -17,6 +17,10 @@ Meteor.methods({
 //Remove Collection 
   clearCollection(){
     Xcel.remove({});
+    Xcel2.remove({});
+    Xcel3 .remove({});
+
+
 
   },
 

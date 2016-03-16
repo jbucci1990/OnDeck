@@ -92,7 +92,6 @@ Template.BackWall.events({
 'click #add' : function (event) {
 
 
-
       // var gamerow = document.getElementById("Game");
       var currentTable = event.target.previousElementSibling;
       console.log(currentTable);
@@ -111,6 +110,7 @@ Template.BackWall.events({
       
 
       console.log(i);
+
 
 
 
@@ -201,8 +201,11 @@ Template.upload.events({
 
   'click #save' : function (event) {
 
+
+
     event.preventDefault();
     Meteor.call('clearCollection');
+
      var mondayGames = [];
       var tuesdayGames = [];
       var wedGames = [];
@@ -260,8 +263,10 @@ $(correctDayTable2).each(function (i, tr) {
 
     myTable2.push(myTr2);
 });
-
+myTable2.splice(0,1);
 console.log(myTable2);
+Xcel2.insert(myTable2);
+
 
 
 var myTable3 = [];
@@ -273,14 +278,19 @@ $(correctDayTable3).each(function (i, tr) {
     });
 
     myTable3.push(myTr3);
+
 });
 
 console.log(myTable3);
+Xcel3.insert(myTable3);
+
+
+
 Bert.alert( 'Schedule Saved!', 'success', 'growl-top-right' );
 };
 
 // Meteor.call('msexcelbuilder');
-Meteor.call('excel4node');
+// Meteor.call('excel4node');
 
 
 
@@ -288,12 +298,14 @@ Meteor.call('excel4node');
 
   },
 
+  
+
   'click #loadLastSave' : function (event){
 
     
+   
 
-
-
+    // FOR TECH TABLE 
     var mondayInfo = [];
     var tuesdayInfo = [];
     var wednesdayInfo = [];
@@ -302,15 +314,37 @@ Meteor.call('excel4node');
     var saturdayInfo = [];
     var sundayInfo = [];
 
+    // FOR FLOAT/EIC TABLE
+    var mondayInfo2 = [];
+    var tuesdayInfo2 = [];
+    var wednesdayInfo2 = [];
+    var thursdayInfo2 = [];
+    var fridayInfo2 = [];
+    var saturdayInfo2 = [];
+    var sundayInfo2 = [];
+
+    // FOR ADMIN TABLE
+    var mondayInfo3 = [];
+    var tuesdayInfo3 = [];
+    var wednesdayInfo3 = [];
+    var thursdayInfo3 = [];
+    var fridayInfo3 = [];
+    var saturdayInfo3 = [];
+    var sundayInfo3 = [];
 
     var savedGame = Xcel.find().fetch();
+    var savedGame2 = Xcel2.find().fetch();
+    var savedGame3 = Xcel3.find().fetch();
+    
     console.log(savedGame);
+    console.log(savedGame2);
+    console.log(savedGame3);
 
     for (var item = 0; item <savedGame.length; item++){
       var currentObject = savedGame[item];
       console.log(currentObject);
 
-        console.log(currentObject[item].length);
+        // console.log(currentObject[item].length);
 
         var lengthofObject = _.size(currentObject) - 1;
         for (var newItem = 0; newItem < lengthofObject; newItem++){
@@ -362,6 +396,11 @@ Meteor.call('excel4node');
 
      
     };
+
+
+    /////////////// ------   ///////
+
+    
 
     var testingthestring = ["monday", "tuesday","wednesday", "thursday", "friday","saturday","sunday"];
 
@@ -624,9 +663,508 @@ Meteor.call('excel4node');
 
   }
 
+/////////////----------------TABLE 2 --------------////////////
+
+    for (var item2 = 0; item2 <savedGame2.length; item2++){
+
+      // $('.row1').show();
+
+      console.log("*******")
+      var eicTable = $("." +testingthestring[item2] +"Table .GameTable2")
+      console.log(eicTable);
+      $("." +testingthestring[item2] +"Table .GameTable2 tr:not(:eq(0), :eq(1))").remove();
+
+        var eicCol = savedGame2[item2];
+        console.log(eicCol);
+        eicColLength = _.size(eicCol);
+        console.log(eicColLength);
+
+      for (var itemNext = 0; itemNext < eicColLength; itemNext++)
+      {
+
+      var clone2 = $("." +testingthestring[item2] +"Table .GameTable2 tr:eq(1)").clone().find("input").each(function() {
+    $(this).val('')
+  }).end();
+
+    clone2.attr({
+
+      'id': function(_, id) {return id + itemNext},
+      'name' : function(_, name) {return name + itemNext},
+      'class' : function(_,name) {return name + itemNext},
+    })  
+    clone2.appendTo(eicTable);
+
+
+
+
+    if ( item2 == 0){
+            mondayInfo2.push(eicCol[itemNext])
+            console.log("-+_+_+_+_+++_+++_+")
+            console.log(mondayInfo2);
+}
+          if ( item2 == 1){
+            tuesdayInfo2.push(eicCol[itemNext])
+            console.log("-+_+_+_+_+++_+++_+")
+            console.log(tuesdayInfo2);
+}
+          if ( item2 == 2){
+            wednesdayInfo2.push(eicCol[itemNext])
+}
+
+          if ( item2 == 3){
+            thursdayInfo2.push(eicCol[itemNext])
+}
+          if ( item2 == 4){
+            fridayInfo2.push(eicCol[itemNext])
+}
+          if ( item2 == 5){
+            saturdayInfo2.push(eicCol[itemNext])
+}
+
+          if ( item2 == 6){
+            sundayInfo2.push(eicCol[itemNext])
+}
+
+
+        var rowID = "Game" + itemNext;
+        // console.log(rowID);
+        console.log("----------------------")
+
+  
+
+        var currentMondayObject = mondayInfo2[itemNext];
+        var currentTuesdayObject = tuesdayInfo2[itemNext];
+        var currentWednesdayObject = wednesdayInfo2[itemNext];
+        var currentThursdayObject = thursdayInfo2[itemNext];
+        var currentFridayObject = fridayInfo2[itemNext];
+        var currentSaturdayObject = saturdayInfo2[itemNext];
+        var currentSundayObject = sundayInfo2[itemNext];
+        
+       for (var object in currentMondayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".monday .mondayBackWall").find("#" + rowID).find(".position").val(currentMondayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".monday .mondayBackWall").find("#" + rowID).find(".tech").val(currentMondayObject[object]);
+          }
+
+          else if(object == 2){
+            $(".monday .mondayBackWall").find("#" + rowID).find(".shift").val(currentMondayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".monday .mondayBackWall").find("#" + rowID).find(".station").val(currentMondayObject[object]);
+          }
+
+          console.log(rowID);
+
+      }
+
+          for (var object in currentTuesdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".tuesday .tuesdayBackWall").find("#" + rowID).find(".position").val(currentTuesdayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".tuesday .tuesdayBackWall").find("#" + rowID).find(".tech").val(currentTuesdayObject[object]);
+          }
+
+          else if(object == 2){
+            $(".tuesday .tuesdayBackWall").find("#" + rowID).find(".shift").val(currentTuesdayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".tuesday .tuesdayBackWall").find("#" + rowID).find(".station").val(currentTuesdayObject[object]);
+          }
+
+          console.log(rowID);
+
+      }
+
+        
+        for (var object in currentWednesdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".wednesday .wednesdayBackWall").find("#" + rowID).find(".position").val(currentWednesdayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".wednesday .wednesdayBackWall").find("#" + rowID).find(".tech").val(currentWednesdayObject[object]);
+          }
+
+          else if(object == 2){
+            $(".wednesday .wednesdayBackWall").find("#" + rowID).find(".shift").val(currentWednesdayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".wednesday .wednesdayBackWall").find("#" + rowID).find(".station").val(currentWednesdayObject[object]);
+          }
+
+          console.log(rowID);
+
+      }
+
+
+        for (var object in currentThursdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".thursday .thursdayBackWall").find("#" + rowID).find(".position").val(currentThursdayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".thursday .thursdayBackWall").find("#" + rowID).find(".tech").val(currentThursdayObject[object]);
+          }
+
+          else if(object == 2){
+            $(".thursday .thursdayBackWall").find("#" + rowID).find(".shift").val(currentThursdayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".thursday .thursdayBackWall").find("#" + rowID).find(".station").val(currentThursdayObject[object]);
+          }
+
+          console.log(rowID);
+
+      }
+
+        for (var object in currentFridayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".friday .fridayBackWall").find("#" + rowID).find(".position").val(currentFridayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".friday .fridayBackWall").find("#" + rowID).find(".tech").val(currentFridayObject[object]);
+          }
+
+          else if(object == 2){
+            $(".friday .fridayBackWall").find("#" + rowID).find(".shift").val(currentFridayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".friday .fridayBackWall").find("#" + rowID).find(".station").val(currentFridayObject[object]);
+          }
+
+          console.log(rowID);
+
+      }
+
+      for (var object in currentSaturdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".saturday .saturdayBackWall").find("#" + rowID).find(".position").val(currentSaturdayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".saturday .saturdayBackWall").find("#" + rowID).find(".tech").val(currentSaturdayObject[object]);
+          }
+
+          else if(object == 2){
+            $(".saturday .saturdayBackWall").find("#" + rowID).find(".shift").val(currentSaturdayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".saturday .saturdayBackWall").find("#" + rowID).find(".station").val(currentSaturdayObject[object]);
+          }
+
+          console.log(rowID);
+
+      }
+
+        for (var object in currentSundayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".sunday .sundayBackWall").find("#" + rowID).find(".position").val(currentSundayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".sunday .sundayBackWall").find("#" + rowID).find(".tech").val(currentSundayObject[object]);
+          }
+
+          else if(object == 2){
+            $(".sunday .sundayBackWall").find("#" + rowID).find(".shift").val(currentSundayObject[object]);
+          }
+
+          else if(object == 3){
+            $(".sunday .sundayBackWall").find("#" + rowID).find(".station").val(currentSundayObject[object]);
+          }
+
+          console.log(rowID);
+
+      }
+
+
+
+
+        
+
+
+      }
+    $("." +testingthestring[item2] +"Table .GameTable2 tr:last").remove();
+
+
+
+
+      
+    };
+
+     // $('.row1').hide();
+
+
+    /////////////----------------TABLE 3 --------------////////////
+
+
+        for (var item2 = 0; item2 <savedGame3.length; item2++){
+
+      // $('.row1').show();
+
+      console.log("*******")
+      var eicTable = $("." +testingthestring[item2] +"Table .GameTable3")
+      console.log(eicTable);
+      $("." +testingthestring[item2] +"Table .GameTable3 tr:not(:eq(0), :eq(1))").remove();
+
+        var eicCol = savedGame3[item2];
+        console.log(eicCol);
+        eicColLength = _.size(eicCol);
+        console.log(eicColLength);
+
+      for (var itemNext = 0; itemNext < eicColLength; itemNext++)
+      {
+
+          if (itemNext !=0) {
+
+      var clone2 = $("." +testingthestring[item2] +"Table .GameTable3 tr:eq(1)").clone().find("input").each(function() {
+    $(this).val('')
+  }).end();
+
+    clone2.attr({
+
+      'id': function(_, id) {return id + itemNext},
+      'name' : function(_, name) {return name + itemNext},
+      'class' : function(_,name) {return name + itemNext},
+    })  
+    clone2.appendTo(eicTable);
+  }
+
+
+    if ( item2 == 0){
+            mondayInfo3.push(eicCol[itemNext])
+            console.log("-+_+_+_+_+++_+++_+")
+            console.log(mondayInfo3);
+}
+          if ( item2 == 1){
+            tuesdayInfo3.push(eicCol[itemNext])
+            console.log("-+_+_+_+_+++_+++_+")
+            console.log(tuesdayInfo3);
+}
+          if ( item2 == 2){
+            wednesdayInfo3.push(eicCol[itemNext])
+}
+
+          if ( item2 == 3){
+            thursdayInfo3.push(eicCol[itemNext])
+}
+          if ( item2 == 4){
+            fridayInfo3.push(eicCol[itemNext])
+}
+          if ( item2 == 5){
+            saturdayInfo3.push(eicCol[itemNext])
+}
+
+          if ( item2 == 6){
+            sundayInfo3.push(eicCol[itemNext])
+}
+
+
+        var rowID = "Game" + itemNext;
+        // console.log(rowID);
+        console.log("----------------------")
+
+  
+
+        var currentMondayObject = mondayInfo3[itemNext];
+        var currentTuesdayObject = tuesdayInfo3[itemNext];
+        var currentWednesdayObject = wednesdayInfo3[itemNext];
+        var currentThursdayObject = thursdayInfo3[itemNext];
+        var currentFridayObject = fridayInfo3[itemNext];
+        var currentSaturdayObject = saturdayInfo3[itemNext];
+        var currentSundayObject = sundayInfo3[itemNext];
+        
+       for (var object in currentMondayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".monday .mondayAdmin").find("#" + rowID).find(".admin").val(currentMondayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".monday .mondayAdmin").find("#" + rowID).find(".shift").val(currentMondayObject[object]);
+          }
+
+
+          console.log(rowID);
+
+      }
+
+        for (var object in currentTuesdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".tuesday .tuesdayAdmin").find("#" + rowID).find(".admin").val(currentTuesdayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".tuesday .tuesdayBackWall").find("#" + rowID).find(".shift").val(currentTuesdayObject[object]);
+          }
+
+
+          console.log(rowID);
+
+      }
+        for (var object in currentWednesdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".wednesday .wednesdayAdmin").find("#" + rowID).find(".admin").val(currentWednesdayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".wednesday .wednesdayAdmin").find("#" + rowID).find(".shift").val(currentWednesdayObject[object]);
+          }
+
+
+          console.log(rowID);
+
+      }
+
+        for (var object in currentThursdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".thursday .thursdayAdmin").find("#" + rowID).find(".admin").val(currentThursdayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".thursday .thursdayAdmin").find("#" + rowID).find(".shift").val(currentThursdayObject[object]);
+          }
+
+
+          console.log(rowID);
+
+      }
+
+        for (var object in currentFridayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".friday .fridayAdmin").find("#" + rowID).find(".admin").val(currentFridayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".friday .fridayAdmin").find("#" + rowID).find(".shift").val(currentFridayObject[object]);
+          }
+
+
+          console.log(rowID);
+
+      }
+        for (var object in currentSaturdayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".saturday .saturdayAdmin").find("#" + rowID).find(".admin").val(currentSaturdayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".saturday .saturdayAdmin").find("#" + rowID).find(".shift").val(currentSaturdayObject[object]);
+          }
+
+
+          console.log(rowID);
+
+      }
+
+        for (var object in currentSundayObject){
+          // console.log(object + ":    " + currentMondayObject[object]);
+          if(object == 0){
+
+          $(".sunday .sundayAdmin").find("#" + rowID).find(".admin").val(currentSundayObject[object]);
+        }
+
+          else if(object == 1){
+            $(".sunday .sundayAdmin").find("#" + rowID).find(".shift").val(currentSundayObject[object]);
+          }
+
+
+          console.log(rowID);
+
+      }
+
+
+        
+
+
+      }
+        // $("." +testingthestring[item2] +"Table .GameTable2 tr:eq(2)").remove();
+        $("." +testingthestring[item2] +"Table .GameTable3 tr:last").remove();
+
+
+
+
+      
+    };
+
+
+
+     // $('.row1').hide();
+
+  //   for (var item2 = 0; item2 <savedGame3.length; item2++){
+
+  //     console.log("*******")
+  //     var eicTable = $("." +testingthestring[item2] +"Table .GameTable3")
+  //     console.log(eicTable);
+  //     $("." +testingthestring[item2] +"Table .GameTable3 tr:not(:eq(0), :eq(1))").remove();
+
+  //       var eicCol = savedGame3[item2];
+  //       eicColLength = _.size(eicCol) - 3;
+  //       console.log(eicColLength);
+
+  //     for (var itemNext = 0; itemNext < eicColLength; itemNext++)
+  //     {
+
+  //     var clone2 = $("." +testingthestring[item2] +"Table .GameTable3 tr:eq(1)").clone().find("input").each(function() {
+  //   $(this).val('')
+  // }).end();
+
+  //   clone2.attr({
+
+  //     'id': function(_, id) {return id + itemNext},
+  //     'name' : function(_, name) {return name + itemNext},
+  //     'class' : function(_,name) {return name + itemNext},
+  //   })  
+  //   clone2.appendTo(eicTable);
+
+
+
+
+  //     }
+  //   };
 
 
   },
+
+
+
 
   'click #add' : function (event) {
 
@@ -694,10 +1232,10 @@ Meteor.call('excel4node');
 
       for (var item = 0; item<gamearray.length; item++){
 
-        var currentTable = event.target.previousElementSibling;
+      //   var currentTable = event.target.previousElementSibling;
 
 
-      var table = document.getElementById("GameTable");
+      // var table = document.getElementById("GameTable");
       // var clone = $("#GameTable tr:last").clone().find('input').val('').end().insertAfter("#GameTable tr:last")
       var clone = $("." +testingthestring[itemTop] +"Table .GameTable tr:eq(1)").clone().find("input").each(function() {
     $(this).val('')

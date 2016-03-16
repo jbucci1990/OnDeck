@@ -54,7 +54,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse mondayTable" id="collapseDiv2" >
+  <div class="collapse mondayTable mondayBackWall" id="collapseDiv2" >
   {{> BackWall}}
   
   </div>
@@ -62,7 +62,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse mondayTable" id="collapseDiv3" >
+  <div class="collapse mondayTable mondayAdmin" id="collapseDiv3" >
   {{> Admins}}
 
   </div>
@@ -86,7 +86,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Tues" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse tuesdayTable" id="collapseDiv2Tues" >
+  <div class="collapse tuesdayTable tuesdayBackWall" id="collapseDiv2Tues" >
   {{> BackWall}}
   
   </div>
@@ -94,7 +94,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Tues" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse tuesdayTable" id="collapseDiv3Tues" >
+  <div class="collapse tuesdayTable tuesdayAdmin" id="collapseDiv3Tues" >
   {{> Admins}}
 
   </div>
@@ -116,7 +116,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Wed" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse wednesdayTable" id="collapseDiv2Wed" >
+  <div class="collapse wednesdayTable wednesdayBackWall" id="collapseDiv2Wed" >
   {{> BackWall}}
   
   </div>
@@ -124,7 +124,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Wed" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse wednesdayTable" id="collapseDiv3Wed" >
+  <div class="collapse wednesdayTable wednesdayAdmin" id="collapseDiv3Wed" >
   {{> Admins}}
 
   </div>
@@ -146,7 +146,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Thur" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse thursdayTable" id="collapseDiv2Thur" >
+  <div class="collapse thursdayTable thursdayBackWall" id="collapseDiv2Thur" >
   {{> BackWall}}
   
   </div>
@@ -154,7 +154,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Thur" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse thursdayTable" id="collapseDiv3Thur" >
+  <div class="collapse thursdayTable thursdayAdmin" id="collapseDiv3Thur" >
   {{> Admins}}
 
   </div>
@@ -176,7 +176,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Fri" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse fridayTable" id="collapseDiv2Fri" >
+  <div class="collapse fridayTable fridayBackWall" id="collapseDiv2Fri" >
   {{> BackWall}}
   
   </div>
@@ -184,7 +184,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Fri" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse fridayTable" id="collapseDiv3Fri" >
+  <div class="collapse fridayTable fridayAdmin" id="collapseDiv3Fri" >
   {{> Admins}}
 
   </div>
@@ -207,7 +207,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Sat" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse saturdayTable" id="collapseDiv2Sat" >
+  <div class="collapse saturdayTable saturdayBackWall" id="collapseDiv2Sat" >
   {{> BackWall}}
   
   </div>
@@ -215,7 +215,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Sat" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse saturdayTable" id="collapseDiv3Sat" >
+  <div class="collapse saturdayTable saturdayAdmin" id="collapseDiv3Sat" >
   {{> Admins}}
 
   </div>
@@ -239,7 +239,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv2Sun" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse sundayTable" id="collapseDiv2Sun" >
+  <div class="collapse sundayTable sundayBackWall" id="collapseDiv2Sun" >
   {{> BackWall}}
   
   </div>
@@ -247,7 +247,7 @@
   <btn class ="btn btn-warning" data-toggle="collapse" data-target="#collapseDiv3Sun" aria-expanded="false" aria-controls="collapseExample">Show/Hide</btn>
   </h2>
 
-  <div class="collapse sundayTable" id="collapseDiv3Sun" >
+  <div class="collapse sundayTable sundayAdmin" id="collapseDiv3Sun" >
   {{> Admins}}
 
   </div>
@@ -256,6 +256,12 @@
 
 </div> 
 
+
+
+
+</div>
+
+<div class ="uploadSave col-xs-6 col-md-4" id="rightbox	">
 {{>upload}}
 {{>export}}
 </div>
@@ -304,7 +310,7 @@
           </thead>
 
  <tbody class ="tbod">
-<tr id="Game" class="template" name="row">
+<tr id="Game" class="template" name="row" >
 
 <td>
 <form class="focus">
@@ -423,7 +429,7 @@
 
 <thead>
 
-<tr>
+<tr >
 	
 	<th>Position</th>
 	<th>Tech</th>
@@ -434,10 +440,10 @@
 
 
 </thead>
-<tbody>
-	<tr>
+<tbody class="tbody">
+	<tr id="Game" class="template row1" name="row">
 		<td>
-			<input list="backwall" type="text" placeholder="Position" >
+			<input list="backwall" type="text" class="position" placeholder="Position" >
 
 			<datalist id = "backwall">
 			<option value="EIC"></option>
@@ -452,14 +458,14 @@
 			</datalist>
 		</td>
 		<td>
-			<input type="text" placeholder="Tech">
+			<input type="text" class="tech" placeholder="Tech">
 		</td>
 		<td>
-			<input type="text" placeholder="Shift">
+			<input type="text" class="shift" placeholder="Shift">
 		</td>
 
 		<td>
-			<input type="text" placeholder="Station" >
+			<input type="text" class="station" placeholder="Station" >
 		</td>
 
 		<td>
@@ -503,13 +509,13 @@
 
 </thead>
 <tbody>
-	<tr>
+	<tr id="Game" class="template row1">
 		
 		<td>
-			<input type="text" placeholder="Admin">
+			<input type="text" placeholder="Admin" class="admin">
 		</td>
 		<td>
-			<input type="text" placeholder="Shift">
+			<input type="text" placeholder="Shift" class="shift">
 		</td>
 
 		<td>
@@ -534,6 +540,8 @@
 </template>
 
 <template name="upload">
+
+	<div>
 	<h4 class="page-header">Upload a CSV</h4>
 
 	{{#unless uploading}}
@@ -553,12 +561,15 @@
 		</button>
 
 	</div>
+	</div>
 </template>
 
 <template name ="export">
 <button class="export-data btn btn-success" data-loading-text="Exporting...">Export Data</button>
 
 <a href="/text">Download text</a>
+
+
 
 </template>
 
